@@ -1,0 +1,26 @@
+<%= stylesheet_link_tag 'style' %>
+
+<h1>Weather App</h1>
+<%= form_with(url: '/weather', method: :get) do |form| %>
+  <%= form.label :city %>
+  <%= form.text_field :city %>
+  <%= form.submit 'Get Weather' %>
+<% end %>
+
+<% if @weather %>
+  <h2>Weather for <%= @weather[:name] %></h2>
+  <p>Temperature: <%= @weather[:temperature] %> &#8451;</p>
+  <p>Feels Like: <%= @weather[:feels_like] %> &#8451;</p>
+  <p>Minimum Temperature: <%= @weather[:temp_min] %> &#8451;</p>
+  <p>Maximum Temperature: <%= @weather[:temp_max] %> &#8451;</p>
+  <p>Pressure: <%= @weather[:pressure] %> hPa</p>
+  <p>Humidity: <%= @weather[:humidity] %>%</p>
+  <p>Visibility: <%= @weather[:visibility] %> meters</p>
+  <p>Wind Speed: <%= @weather[:wind_speed] %> m/s</p>
+  <p>Wind Direction: <%= @weather[:wind_direction] %> degrees</p>
+  <p>Clouds: <%= @weather[:clouds] %>%</p>
+<% end %>
+
+
+
+
